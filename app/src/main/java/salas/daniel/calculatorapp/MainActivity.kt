@@ -38,9 +38,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onOperator(view: View){
+        Toast.makeText(this,isOperatorAdded(tvInput?.text.toString()).toString(),Toast.LENGTH_SHORT).show()
         tvInput?.text?.let{
 
             if(lastNumeric && !isOperatorAdded(it.toString())){
+
                 tvInput?.append((view as Button).text)
                 lastNumeric = false
                 lastDot = false
@@ -107,7 +109,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun removeZeroAfterDot(result: String) : String{
+    private fun removeZeroAfterDot(result: String)  : String{
         var value = result
         if(result.contains(".0")){
             value = result.substring(0 , result.length - 2)
